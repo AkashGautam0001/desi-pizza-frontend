@@ -6,10 +6,11 @@ import IconPatchCheck from "../components/icons/IconPatchCheck";
 import OrderFood from "../assets/images/orderFood.png";
 import Pickup from "../assets/images/pickup.png";
 import Enjoy from "../assets/images/enjoy.png";
+import Layout from "../layouts/Layout";
 
 function Home() {
 	return (
-		<>
+		<Layout>
 			<section
 				className="flex flex-col-reverse items-center justify-center py-5 md:flex-row md:gap-7 bg-gradient-to-r from-amber-50 to-orange-300
                 "
@@ -149,7 +150,7 @@ function Home() {
 					</div>
 				</div>
 			</section>
-		</>
+		</Layout>
 	);
 }
 
