@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../../layouts/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -8,12 +8,15 @@ import {
 	getCartDetails,
 	removeProductFromCart,
 } from "../../redux/slices/CartSlice";
+import toast from "react-hot-toast";
 
 function ProductDetails() {
 	const { productId } = useParams();
 	const dispatch = useDispatch();
 	const [productDetails, setProductDetails] = useState({});
 	const [isInCart, setIsInCart] = useState(false);
+	const { isLoggedIn } = useSelector((state) => state.auth);
+	const navigate = useNavigate();
 
 	async function fetchProductDetails() {
 		const details = await dispatch(getProductDetails(productId));
@@ -25,7 +28,13 @@ function ProductDetails() {
 	}, []);
 
 	async function handleCart() {
+		if (!isLoggedIn) {
+			toast.error("first create your account");
+			navigate("/login");
+			return;
+		}
 		const response = await dispatch(addProductToCart(productId));
+
 		if (response?.payload?.data?.success) {
 			setIsInCart(true);
 			dispatch(getCartDetails()); //fetch cart details and update stae
