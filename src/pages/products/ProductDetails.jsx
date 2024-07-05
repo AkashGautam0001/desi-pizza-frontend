@@ -30,7 +30,7 @@ function ProductDetails() {
 	async function handleCart() {
 		if (!isLoggedIn) {
 			toast.error("first create your account");
-			navigate("/login");
+			navigate("/auth/login");
 			return;
 		}
 		const response = await dispatch(addProductToCart(productId));
