@@ -199,7 +199,7 @@ function Home() {
 					})}
 				</div>
 			</div>
-			// TODO : Make Pagination
+			{/* TODO : Make Pagination */}
 		</Layout>
 	);
 }
