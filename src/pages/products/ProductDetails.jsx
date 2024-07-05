@@ -23,16 +23,13 @@ function ProductDetails() {
 		console.log(details);
 		setProductDetails(details?.payload?.data?.data);
 	}
-	useEffect(() => {
-		fetchProductDetails();
-	}, []);
 
 	async function handleCart() {
-		if (!isLoggedIn) {
-			toast.error("first create your account");
-			navigate("/auth/login");
-			return;
-		}
+		// if (!isLoggedIn) {
+		// 	toast.error("first create your account");
+		// 	navigate("/auth/login");
+		// 	return;
+		// }
 		const response = await dispatch(addProductToCart(productId));
 
 		if (response?.payload?.data?.success) {
@@ -48,6 +45,11 @@ function ProductDetails() {
 			dispatch(getCartDetails());
 		}
 	}
+
+	useEffect(() => {
+		fetchProductDetails();
+	}, []);
+
 	return (
 		<Layout>
 			<section className="overflow-hidden text-gray-600 body-font">
