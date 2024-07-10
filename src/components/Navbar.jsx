@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import Profile from "../assets/images/Profile.png";
-import CartImage from "../assets/images/CartImage.png";
+import profile from "../assets/images/profile.png";
+import cartImage from "../assets/images/cartImage.png";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/AuthSlice";
 import { useEffect } from "react";
@@ -66,7 +66,7 @@ function Navbar() {
 								</p> */}
 								<img
 									width={24}
-									src={Profile}
+									src={profile}
 									alt="Profile"
 								/>
 								{/* <Link onClick={handleLogout}>Logout</Link> */}
@@ -84,7 +84,7 @@ function Navbar() {
 								<img
 									className="font-neutralText"
 									width={28}
-									src={CartImage}
+									src={cartImage}
 									alt="cartimage"
 								/>
 							</Link>

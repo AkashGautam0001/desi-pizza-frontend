@@ -1,16 +1,16 @@
 import IconArrowRight from "../components/icons/ArrowRight";
-
-import PizzaImage from "../assets/images/pizza2.png";
-import HomeRestaurant from "../assets/images/HomeRestaurant.jpg";
-import Catering from "../assets/images/Catering.png";
-import Menu from "../assets/images/Menu.png";
-import Store from "../assets/images/Store.png";
-import BirthdayParty from "../assets/images/BirthdayParty.png";
-import DeliFood from "../assets/images/DeliFood.png";
 import IconPatchCheck from "../components/icons/IconPatchCheck";
-// import Pickup from "../assets/images/Pickup.png";
-import Enjoy from "../assets/images/Enjoy.png";
-import Order from "../assets/images/Order.png";
+
+import pizzaImage from "../assets/images/pizza2.png";
+import homeRestaurant from "../assets/images/homeRestaurant.jpg";
+import catering from "../assets/images/catering.png";
+import menu from "../assets/images/menu.png";
+import store from "../assets/images/store.png";
+import birthdayParty from "../assets/images/birthdayParty.png";
+import deliFood from "../assets/images/deliFood.png";
+import pickup from "../assets/images/pickup.png";
+import enjoy from "../assets/images/enjoy.png";
+import order from "../assets/images/order.png";
 import Layout from "../layouts/Layout";
 
 import { Link } from "react-router-dom";
@@ -46,7 +46,7 @@ function Home() {
 
 				<div>
 					<img
-						src={PizzaImage}
+						src={pizzaImage}
 						alt="Pizza"
 						width={550}
 						height={550}
@@ -63,7 +63,7 @@ function Home() {
 					<div className="flex flex-col justify-center items-center h-full bg-gray-100  bg-opacity-55 px-8 pt-16 pb-10 m-2 rounded-lg overflow-hidden text-center relative cursor-pointer">
 						<img
 							width={55}
-							src={Menu}
+							src={menu}
 							alt="menu"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
@@ -83,7 +83,7 @@ function Home() {
 					<div className="flex flex-col justify-center items-center h-full bg-gray-100  bg-opacity-55 px-8 pt-16 pb-10 m-2 rounded-lg overflow-hidden text-center relative cursor-pointer">
 						<img
 							width={55}
-							src={Store}
+							src={store}
 							alt="store"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
@@ -99,7 +99,7 @@ function Home() {
 					<div className="flex flex-col justify-center items-center h-full bg-gray-100  bg-opacity-55 px-8 pt-16 pb-10 m-2 rounded-lg overflow-hidden text-center relative cursor-pointer">
 						<img
 							width={55}
-							src={BirthdayParty}
+							src={birthdayParty}
 							alt="bithday party"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
@@ -116,7 +116,7 @@ function Home() {
 					<div className="flex flex-col justify-center items-center h-full bg-gray-100  bg-opacity-55 px-8 pt-16 pb-10 m-2 rounded-lg overflow-hidden text-center relative cursor-pointer">
 						<img
 							width={55}
-							src={Catering}
+							src={catering}
 							alt="catering"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
@@ -150,7 +150,7 @@ function Home() {
 					<img
 						className="lg:rounded-r-xl"
 						width={400}
-						src={HomeRestaurant}
+						src={homeRestaurant}
 						alt="Food delivery"
 					/>
 				</div>
@@ -200,7 +200,7 @@ function Home() {
 					<div className="mr-9">
 						<img
 							width={1200}
-							src={DeliFood}
+							src={deliFood}
 							alt="delicious food"
 						/>
 					</div>
@@ -209,7 +209,7 @@ function Home() {
 					<div className="flex flex-col justify-center items-center h-full bg-opacity-55 px-8 lg:py-10 py-5 m-2 rounded-lg overflow-hidden text-center relative">
 						<img
 							width={75}
-							src={Order}
+							src={order}
 							alt="order"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
@@ -222,11 +222,11 @@ function Home() {
 					</div>
 
 					<div className="flex flex-col justify-center items-center h-full bg-opacity-55 px-8 lg:py-10 m-2 rounded-lg overflow-hidden text-center relative">
-						{/* <img
+						<img
 							width={75}
-							src={Pickup}
+							src={pickup}
 							alt="pickup"
-						/> */}
+						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
 							Pickup Food
 						</h1>
@@ -238,7 +238,7 @@ function Home() {
 					<div className="flex flex-col justify-center items-center h-full bg-opacity-55 px-8 lg:py-10 py-5 m-2 rounded-lg overflow-hidden text-center relative">
 						<img
 							width={75}
-							src={Enjoy}
+							src={enjoy}
 							alt="enjoy"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
