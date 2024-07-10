@@ -64,7 +64,7 @@ function Home() {
 						<img
 							width={55}
 							src={Menu}
-							alt=""
+							alt="menu"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
 							OUR MENU
@@ -84,7 +84,7 @@ function Home() {
 						<img
 							width={55}
 							src={Store}
-							alt=""
+							alt="store"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
 							NEARBY STORE
@@ -100,7 +100,7 @@ function Home() {
 						<img
 							width={55}
 							src={BirthdayParty}
-							alt=""
+							alt="bithday party"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
 							BIRTHDAY PARTY
@@ -117,7 +117,7 @@ function Home() {
 						<img
 							width={55}
 							src={Catering}
-							alt=""
+							alt="catering"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 m-3">
 							CATERING
@@ -201,7 +201,7 @@ function Home() {
 						<img
 							width={1200}
 							src={DeliFood}
-							alt=""
+							alt="delicious food"
 						/>
 					</div>
 				</div>
@@ -210,7 +210,7 @@ function Home() {
 						<img
 							width={75}
 							src={Order}
-							alt=""
+							alt="order"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
 							Order Food
@@ -225,7 +225,7 @@ function Home() {
 						<img
 							width={75}
 							src={Pickup}
-							alt=""
+							alt="pickup"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
 							Pickup Food
@@ -239,7 +239,7 @@ function Home() {
 						<img
 							width={75}
 							src={Enjoy}
-							alt=""
+							alt="enjoy"
 						/>
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
 							Enjoy Food
