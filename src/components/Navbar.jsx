@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import profile from "../assets/images/profile.png";
-import cartImage from "../assets/images/cartImage.png";
+import profile from "../assets/profile.png";
+import cartImage from "../assets/cartImage.png";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/AuthSlice";
 import { useEffect } from "react";

@@ -1,20 +1,18 @@
 import IconArrowRight from "../components/icons/ArrowRight";
 import IconPatchCheck from "../components/icons/IconPatchCheck";
 
-import pizzaImage from "../assets/images/pizza2.png";
-import homeRestaurant from "../assets/images/homeRestaurant.jpg";
-import catering from "../assets/images/catering.png";
-import menu from "../assets/images/menu.png";
-import store from "../assets/images/store.png";
-import birthdayParty from "../assets/images/birthdayParty.png";
-import deliFood from "../assets/images/deliFood.png";
-import pickup from "../assets/images/pickup.png";
-import enjoy from "../assets/images/enjoy.png";
-import order from "../assets/images/order.png";
+import pizzaImage from "../assets/pizza2.png";
+import homeRestaurant from "../assets/homeRestaurant.jpg";
+import catering from "../assets/catering.png";
+import menu from "../assets/menu.png";
+import store from "../assets/store.png";
+import birthdayParty from "../assets/birthdayParty.png";
+import deliFood from "../assets/deliFood.png";
+import pickup from "../assets/pickup.png";
+import enjoy from "../assets/enjoy.png";
+import order from "../assets/order.png";
 import Layout from "../layouts/Layout";
-
 import { Link } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
 
 function Home() {
 	return (

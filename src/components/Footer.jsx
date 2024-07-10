@@ -1,5 +1,5 @@
 import React from "react";
-import FoodDelivery from "../assets/images/FoodDelivery.svg";
+import FoodDelivery from "../assets/FoodDelivery.svg";
 
 function Footer() {
 	return (
