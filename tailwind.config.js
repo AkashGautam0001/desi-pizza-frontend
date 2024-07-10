@@ -15,7 +15,7 @@ export default {
 				neutralBg: "#333333", // Dark Gray
 			},
 			backgroundImage: {
-				"login-image": "url('/src/assets/images/LoginPageImage.jpg')",
+				"login-image": "url('/src/assets/LoginPageImage.jpg')",
 			},
 		},
 	},
