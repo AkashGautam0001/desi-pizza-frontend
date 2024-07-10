@@ -8,7 +8,7 @@ import Store from "../assets/images/Store.png";
 import BirthdayParty from "../assets/images/BirthdayParty.png";
 import DeliFood from "../assets/images/DeliFood.png";
 import IconPatchCheck from "../components/icons/IconPatchCheck";
-import Pickup from "../assets/images/Pickup.png";
+// import Pickup from "../assets/images/Pickup.png";
 import Enjoy from "../assets/images/Enjoy.png";
 import Order from "../assets/images/Order.png";
 import Layout from "../layouts/Layout";
@@ -222,11 +222,11 @@ function Home() {
 					</div>
 
 					<div className="flex flex-col justify-center items-center h-full bg-opacity-55 px-8 lg:py-10 m-2 rounded-lg overflow-hidden text-center relative">
-						<img
+						{/* <img
 							width={75}
 							src={Pickup}
 							alt="pickup"
-						/>
+						/> */}
 						<h1 className="title-font sm:text-2xl text-xl font-medium text-secondary m-3">
 							Pickup Food
 						</h1>
