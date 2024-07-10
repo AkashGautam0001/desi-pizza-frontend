@@ -1,6 +1,6 @@
 import "./App.css";
 import Denied from "./pages/Denied";
-import Home from "./pages/Home";
+import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound";
 import AddProduct from "./pages/admins/AddProduct";
 import Login from "./pages/auth/Login";
