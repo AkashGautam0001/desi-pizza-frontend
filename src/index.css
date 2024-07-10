@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--primary-color: #ff4500; /* OrangeRed */
+	--secondary-color: #ffd700; /* Gold */
+	--accent-color: #32cd32; /* LimeGreen */
+	--neutral-bg-color: #ffffff; /* White */
+	--neutral-text-color: #333333; /* Dark Gray */
+}

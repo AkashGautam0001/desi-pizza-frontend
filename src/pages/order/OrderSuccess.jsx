@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "../../layouts/Layout";
-import OrderSuccessImage from "../../assets/images/ordered-success.png";
 import { useSelector } from "react-redux";
 function OrderSuccess() {
 	const navigate = useNavigate();
 	return (
 		<Layout>
 			<div className="flex flex-col justify-center items-center py-28">
-				<img
+				{/* <img
 					width={400}
 					height={400}
 					src={OrderSuccessImage}
-				/>
+				/> */}
 
 				<p className="text-lg font-semibold">
 					Your order has been placed successfully

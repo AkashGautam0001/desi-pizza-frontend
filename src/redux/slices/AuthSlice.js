@@ -35,16 +35,17 @@ export const login = createAsyncThunk("/auth/login", async (data) => {
 	console.log("incoming data to thunk", data);
 	try {
 		const response = axiosInstance.post("/auth/login", data);
+		console.log("Login response", response);
 		toast.promise(response, {
 			success: (resolvedPromise) => {
 				return resolvedPromise?.data?.message;
 			},
-			loading: "Hold back tight, we are registering your id...",
+			loading: "Hold back tight, logging...",
 			error: "Ohh No!, Something went wrong, Please try again.",
 		});
 
 		const apiResponse = await response;
-		console.log(apiResponse);
+		console.log("login authlice : ", apiResponse);
 		return apiResponse;
 	} catch (error) {
 		console.log(error);
@@ -95,7 +96,6 @@ const AuthSlice = createSlice({
 			})
 			.addCase(logout.fulfilled, (state, action) => {
 				localStorage.clear();
-
 				state.isLoggedIn = false;
 				state.role = "";
 				state.data = {};

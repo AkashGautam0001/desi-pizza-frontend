@@ -11,6 +11,7 @@ import CartDetails from "./pages/cart/CartDetails";
 import Order from "./pages/order/Order";
 import OrderSuccess from "./pages/order/OrderSuccess";
 import RequireAuth from "./components/auth/RequireAuth";
+import AllProducts from "./pages/AllProducts";
 
 function App() {
 	return (
@@ -31,6 +32,10 @@ function App() {
 				<Route
 					path="/auth/login"
 					element={<Login />}
+				/>
+				<Route
+					path="/menu"
+					element={<AllProducts />}
 				/>
 
 				<Route element={<RequireAuth />}>
