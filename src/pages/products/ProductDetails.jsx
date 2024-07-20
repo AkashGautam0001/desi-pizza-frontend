@@ -1,57 +1,108 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Layout from "../../layouts/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getProductDetails } from "../../redux/slices/ProductSlice";
-import {
-	addProductToCart,
-	getCartDetails,
-	removeProductFromCart,
-} from "../../redux/slices/CartSlice";
-import toast from "react-hot-toast";
+import CartButton from "../../components/CartButton";
 
 function ProductDetails() {
-	const { productId } = useParams();
+	const [presentInCart, setPresentInCart] = useState(false);
 	const dispatch = useDispatch();
 	const [productDetails, setProductDetails] = useState({});
-	const [isInCart, setIsInCart] = useState(false);
-	const { isLoggedIn } = useSelector((state) => state.auth);
-	const navigate = useNavigate();
+	const { cartsData } = useSelector((state) => state.cart);
 
+	const { productId } = useParams();
 	async function fetchProductDetails() {
 		const details = await dispatch(getProductDetails(productId));
 		console.log(details);
 		setProductDetails(details?.payload?.data?.data);
 	}
 
-	async function handleCart() {
-		// if (!isLoggedIn) {
-		// 	toast.error("first create your account");
-		// 	navigate("/auth/login");
-		// 	return;
-		// }
-		const response = await dispatch(addProductToCart(productId));
-
-		if (response?.payload?.data?.success) {
-			setIsInCart(true);
-			dispatch(getCartDetails()); //fetch cart details and update stae
-		}
-	}
-
-	async function handleRemove(productId) {
-		const response = await dispatch(removeProductFromCart(productId));
-		if (response?.payload?.data?.success) {
-			setIsInCart(false);
-			dispatch(getCartDetails());
-		}
+	function checkPresentInCart() {
+		cartsData?.items?.forEach((item) => {
+			if (item.product._id === productId) {
+				setPresentInCart(true);
+				return;
+			}
+			setPresentInCart(false);
+			return;
+		});
 	}
 
 	useEffect(() => {
 		fetchProductDetails();
+		checkPresentInCart();
 	}, []);
-
 	return (
 		<Layout>
+			{/* <section className="overflow-hidden text-gray-600 body-font bg-black">
+				<div className="container px-5 py-2 md:py-24 mx-auto flex flex-col md:flex-row">
+					<div
+						className="p-2 flex flex-col md:flex-row"
+						key={productDetails._id}
+					>
+						<Link to={`/products/${productDetails?._id}`}>
+							<div className="overflow-hidden border rounded-lg bg-white">
+								<img
+									src={productDetails?.productImage}
+									alt="Pizza Image" //semantic HTML
+									className="object-cover object-center w-full lg:h-48 md:h-36"
+								/>
+								<div className="p-6  flex flex-col ">
+									<h2 className="text-sm font-medium tracking-widest text-primary title-font">
+										{productDetails?.category}
+									</h2>
+
+									<h1 className="text-lg font-bold text-gray-900 title-font">
+										{productDetails?.productName}
+									</h1>
+
+									<p className="text-base leading-tight mt-2">
+										{productDetails?.description}
+									</p>
+								</div>
+								<hr className="mt-3" />
+
+								<div className="flex justify-between text-lg font-medium text-gray-900 title-font px-6 py-2 bg-gray-100">
+									<span className="text-2xl font-medium text-gray-900 title-font">
+										₹{productDetails?.price}
+									</span>
+									<CartButton
+										presentInCart={presentInCart}
+										setPresentInCart={setPresentInCart}
+									/>
+								</div>
+							</div>
+						</Link>
+					</div>
+					<div>
+						<div className="flex mb-4">
+							<span className="flex items-center">
+								<svg
+									fill="#FF9110"
+									stroke="currentColor"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									className="w-4 h-4 "
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+								</svg>
+
+								<span className="ml-1 text-gray-400">
+									3.4 (100+ rating)
+								</span>
+							</span>
+						</div>
+						<div>
+							<div>
+								<h1 className="text-wrap">Outlet : Noida </h1>
+								<h1>20-30 min</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> */}
 			<section className="overflow-hidden text-gray-600 body-font">
 				<div className="container px-5 py-24 mx-auto">
 					<div className="flex flex-wrap mx-auto lg:w-4/5">
@@ -166,25 +217,14 @@ function ProductDetails() {
 								{productDetails?.description}
 							</p>
 
-							<div className="flex pt-5">
+							<div className="flex pt-5 space-x-7 items-center ">
 								<span className="text-2xl font-medium text-gray-900 title-font">
 									₹{productDetails?.price}
 								</span>
-								{isInCart ? (
-									<button
-										className="flex px-6 py-2 ml-auto text-white bg-yellow-500 border-0 rounded focus:outline-none hover:bg-yellow-600"
-										onClick={() => handleRemove(productId)}
-									>
-										Remove from cart
-									</button>
-								) : (
-									<button
-										className="flex px-6 py-2 ml-auto text-white bg-yellow-500 border-0 rounded focus:outline-none hover:bg-yellow-600"
-										onClick={handleCart}
-									>
-										Add to Cart
-									</button>
-								)}
+								<CartButton
+									presentInCart={presentInCart}
+									setPresentInCart={setPresentInCart}
+								/>
 							</div>
 						</div>
 					</div>

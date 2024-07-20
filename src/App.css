@@ -3,3 +3,7 @@
 	padding: 0 0;
 	box-sizing: border-box;
 }
+::selection {
+	background: transparent;
+	color: inherit;
+}

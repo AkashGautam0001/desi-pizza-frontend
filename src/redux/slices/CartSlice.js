@@ -61,7 +61,7 @@ export const removeProductFromCart = createAsyncThunk(
 			toast.promise(response, {
 				loading: "Removeing Product from cart...",
 				error: "Something went wrong cannot remove the product",
-				success: "Product Deleted successfully",
+				success: "Product remove from cart",
 			});
 
 			const apiReponse = await response;

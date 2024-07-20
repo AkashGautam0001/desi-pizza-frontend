@@ -1,36 +1,20 @@
 import React from "react";
-import FoodDelivery from "../assets/FoodDelivery.svg";
+import OrderCard from "./OrderCard";
+import { useLocation } from "react-router-dom";
 
 function Footer() {
+	const location = useLocation();
 	return (
 		<footer className="text-gray-600 body-font bg-gradient-to-b from-black to-primary">
-			<div className="flex flex-col lg:flex-row justify-around items-center mx-5 lg:mx-56 py-8 rounded-lg bg-white ">
-				<div className="flex flex-col px-5 lg:px-0 items-center ">
-					<h1 className="text-2xl lg:text-4xl font-serif">
-						<strong className="text-primary">Pizzify's</strong>{" "}
-						online ordering
-					</h1>
-					<p className="text-lg pl-5 lg:pl-0 lg:text-center mb-3 ">
-						Delicious and Yummy pizza delivered fast & fresh
-					</p>
-					<button className="w-fit lg:w-full px-7 py-2 lg:px-4 lg:py-4 text-xl lg:text-2xl bg-accent text-neutral-50 font-extrabold rounded-md transition-all duration-500 ease-in-out hover:bg-black">
-						ORDER ONLINE NOW
-					</button>
-				</div>
-				<img
-					className="mt-4 lg:mt-0"
-					width={300}
-					src={FoodDelivery}
-					alt="Food delivery"
-				/>
-			</div>
+			{location.pathname === "/" && <OrderCard />}
+
 			<div className="container px-5 py-12 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
 				<div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
 					<div className="flex flex-col items-center justify-center">
 						<h1 className="text-6xl font-serif">
-							<strong className="text-black">Pizzify.</strong>{" "}
+							<strong className="text-white">Pizzify.</strong>{" "}
 						</h1>
-						<p className="mt-4 md:ml-9 text-lg leading-tight text-gray-900">
+						<p className="mt-4 md:ml-9 text-lg leading-tight text-gray-200">
 							<strong>Your satisfaction is our priority.</strong>{" "}
 							We look forward to welcoming you back for another
 							exceptional and premium experience.

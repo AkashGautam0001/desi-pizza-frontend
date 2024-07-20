@@ -34,9 +34,9 @@ function CartDetails() {
 
 	return (
 		<Layout>
-			<section className="py-8 antialiased md:py-16 ">
+			<section className="py-8 antialiased md:py-16 bg-black">
 				<div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">
-					<h2 className="text-xl font-bold text-gray-900 sm:text-2xl">
+					<h2 className="text-xl font-bold text-gray-100 sm:text-2xl">
 						Card details
 					</h2>
 					{cartDetails?.items?.length > 0 ? (
@@ -46,70 +46,36 @@ function CartDetails() {
 									{cartDetails?.items.map((item) => (
 										<div
 											key={item._id}
-											className="p-4 text-gray-900 rounded-lg shadow-sm bg-gradient-to-r from-amber-50 to-orange-300 md:p-6 border"
+											className="flex text-gray-900 rounded-lg shadow-sm bg-white border"
 										>
-											<div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+											<div>
 												<img
-													className="hidden w-20 h-20 dark:block rounded-md"
 													src={
-														item?.product
-															?.productImage
+														item.product
+															.productImage
 													}
-													alt={
-														item?.product
-															?.productName
-													}
+													alt=""
+													className="h-40  md:h-36 rounded-l-lg"
 												/>
-												<div className="flex-1 w-full min-w-0 md:order-2 md:max-w-md">
-													<p className="text-base font-medium text-gray-900 hover:underline">
-														<Link
-															to={`/product/${item?._id}`}
-														>
-															{`${item?.product?.productName}, ${item?.product?.description}, Category: ${item?.product?.category}`}
-														</Link>
-													</p>
-													<p>
+											</div>
+											<div className="flex flex-col p-3 relative">
+												<span className="font-medium text-primary">
+													{item?.product.category}
+												</span>
+												<Link
+													to={`/products/${item?.product._id}`}
+												>
+													<span className="text-xl font-bold underline">
 														{" "}
-														₹{
-															item?.product?.price
-														}{" "}
-													</p>
-
-													<div className="flex items-center gap-4">
-														{item._id && (
-															<button
-																type="button"
-																onClick={() =>
-																	handleRemove(
-																		item
-																			?.product
-																			?._id
-																	)
-																}
-																className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
-															>
-																<svg
-																	className="me-1.5 h-5 w-5"
-																	aria-hidden="true"
-																	xmlns="http://www.w3.org/2000/svg"
-																	width="24"
-																	height="24"
-																	fill="none"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		stroke="currentColor"
-																		strokeLinecap="round"
-																		strokeLinejoin="round"
-																		strokeWidth="2"
-																		d="M6 18 17.94 6M18 18 6.06 6"
-																	/>
-																</svg>
-																Remove
-															</button>
-														)}
-													</div>
-												</div>
+														{
+															item?.product
+																.productName
+														}
+													</span>
+												</Link>
+												<span className="hidden md:block text-wrap overflow-hidden">
+													{item?.product.description}
+												</span>
 											</div>
 										</div>
 									))}
@@ -117,7 +83,7 @@ function CartDetails() {
 							</div>
 
 							<div className="flex-1 max-w-4xl mx-auto mt-6 space-y-6 lg:mt-0 lg:w-full">
-								<div className="p-4 space-y-4 text-gray-800 border rounded-lg shadow-sm bg-gradient-to-r from-amber-50 to-orange-300 sm:p-6">
+								<div className="p-4 space-y-4 text-gray-800 border rounded-lg shadow-sm bg-white">
 									<p className="text-xl font-semibold text-gray-900 ">
 										Order summary
 									</p>
@@ -184,7 +150,7 @@ function CartDetails() {
 									{cartDetails?.items.length > 0 && (
 										<Link
 											to={"/order"}
-											className="flex justify-center text-white bg-yellow-400 border border-yellow-500 rounded-md hover:bg-yellow-700"
+											className="flex justify-center text-white bg-primary border py-3 text-xl rounded-md hover:bg-accent"
 										>
 											Proceed to Checkout
 										</Link>
@@ -197,7 +163,7 @@ function CartDetails() {
 										</span>
 										<Link
 											to={"/"}
-											className="inline-flex items-center gap-2 text-sm font-medium underline text-primary-700 hover:no-underline dark:text-primary-500"
+											className="inline-flex items-center gap-2 text-lg font-medium underline text-primary-700 hover:no-underline dark:text-primary-500"
 										>
 											Continue Shopping
 											<svg

@@ -1,6 +1,5 @@
 import IconArrowRight from "../components/icons/ArrowRight";
 import IconPatchCheck from "../components/icons/IconPatchCheck";
-
 import pizzaImage from "../assets/pizza2.png";
 import homeRestaurant from "../assets/homeRestaurant.jpg";
 import catering from "../assets/catering.png";
@@ -35,10 +34,12 @@ function Home() {
 					</p>
 
 					<button className="flex items-center px-4 py-2 text-black bg-accent rounded-md hover:bg-neutralBg hover:text-white group">
-						Order Now
-						<span className="inline-block ml-3 transition-transform ease-in-out group-hover:translate-x-2">
-							<IconArrowRight />
-						</span>
+						<Link to={"/menu"}>
+							Order Now
+							<span className="inline-block ml-3 transition-transform ease-in-out group-hover:translate-x-2">
+								<IconArrowRight />
+							</span>
+						</Link>
 					</button>
 				</div>
 
@@ -51,9 +52,6 @@ function Home() {
 					/>
 				</div>
 			</section>
-			{/* <section className="absolute top-0 z-100">
-				<Sidebar />
-			</section> */}
 
 			{/* Our Services */}
 			<section className="text-gray-700 body-font bg-gradient-to-t from-black to-primary">
@@ -90,9 +88,12 @@ function Home() {
 						<p className="leading-relaxed mb-3">
 							Find a Pizzify restaurants or store near you
 						</p>
-						<a className="text-neutralText text-xl bg-neutralBg hover:bg-white hover:text-neutralBg inline-flex items-center px-4 py-2 rounded-md transition-all duration-500 ease-in-out">
+						<Link
+							to={"/contact"}
+							className="text-neutralText text-xl bg-neutralBg hover:bg-white hover:text-neutralBg inline-flex items-center px-4 py-2 rounded-md transition-all duration-500 ease-in-out"
+						>
 							FIND OUR STORE
-						</a>
+						</Link>
 					</div>
 					<div className="flex flex-col justify-center items-center h-full bg-gray-100  bg-opacity-55 px-8 pt-16 pb-10 m-2 rounded-lg overflow-hidden text-center relative cursor-pointer">
 						<img
@@ -107,9 +108,12 @@ function Home() {
 							Celebrate the joy of birthday with Fresh & Hot
 							Pizzas
 						</p>
-						<a className="text-neutralText text-xl bg-neutralBg hover:bg-white hover:text-neutralBg inline-flex items-center px-4 py-2 rounded-md transition-all duration-500 ease-in-out">
+						<Link
+							to={"/bulk-ordering"}
+							className="text-neutralText text-xl bg-neutralBg hover:bg-white hover:text-neutralBg inline-flex items-center px-4 py-2 rounded-md transition-all duration-500 ease-in-out"
+						>
 							BOOK NOW
-						</a>
+						</Link>
 					</div>
 					<div className="flex flex-col justify-center items-center h-full bg-gray-100  bg-opacity-55 px-8 pt-16 pb-10 m-2 rounded-lg overflow-hidden text-center relative cursor-pointer">
 						<img
@@ -123,9 +127,12 @@ function Home() {
 						<p className="leading-relaxed mb-3">
 							Find a Pizzify restaurants or store near you
 						</p>
-						<a className="text-neutralText text-xl bg-neutralBg hover:bg-white hover:text-neutralBg inline-flex items-center px-4 py-2 rounded-md transition-all duration-500 ease-in-out">
+						<Link
+							to={"/contact"}
+							className="text-neutralText text-xl bg-neutralBg hover:bg-white hover:text-neutralBg inline-flex items-center px-4 py-2 rounded-md transition-all duration-500 ease-in-out"
+						>
 							BOOK NOW
-						</a>
+						</Link>
 					</div>
 				</div>
 
@@ -142,7 +149,7 @@ function Home() {
 							Reserve a Spot for an Exceptional Dining Experience
 						</p>
 						<button className="w-fit lg:w-full px-4 py-2 lg:px-2 text-xl lg:p-4 lg:text-2xl bg-accent lg:bg-black text-neutral-50 font-extrabold rounded-md transition-all duration-500 ease-in-out hover:bg-primary ">
-							Book Your Table Now
+							<Link to={"/restaurants"}>Book Your Table Now</Link>
 						</button>
 					</div>
 					<img
