@@ -31,8 +31,8 @@ function AllProducts() {
 	return (
 		<Layout>
 			<section className="bg-black">
-				<div className="sticky top-9 block md:hidden ">
-					<div className="flex flex-row bg-black justify-center  w-full gap-1 py-2">
+				<div className="sticky top-8 block md:hidden ">
+					<div className="flex flex-row bg-black justify-center  w-full gap-2 py-2">
 						{categoryMob.map((category, index) => (
 							<NavLink
 								key={index}

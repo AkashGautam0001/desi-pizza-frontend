@@ -25,7 +25,7 @@
 	}
 
 	.categories-style-mob {
-		@apply text-base text-white focus:bg-accent focus:text-black py-0.5 px-1.5 rounded-sm;
+		@apply text-base text-white focus:bg-primary focus:text-black py-0.5 px-2 rounded-sm;
 	}
 	.head-navbar-mob {
 		@apply text-base text-white py-1 px-2 transition-all duration-300 ease-in-out;
