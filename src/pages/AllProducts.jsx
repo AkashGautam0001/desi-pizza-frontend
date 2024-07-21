@@ -4,6 +4,8 @@ import { getAllProducts } from "../redux/slices/ProductSlice";
 import { Link, NavLink } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import { categories, categoryMob } from "../utils/categories";
+import Cooking from "../assets/cooking.svg";
+import LoadingGif from "../assets/loading.gif";
 
 function AllProducts() {
 	const dispatch = useDispatch();
@@ -11,9 +13,11 @@ function AllProducts() {
 	const [searchParam, setSearchParam] = useState("all");
 	const [filterProduct, setFilterProduct] = useState([...productData]);
 	const [filter, setFilter] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		dispatch(getAllProducts());
+		setLoading(false);
 	}, []);
 
 	useEffect(() => {
@@ -31,6 +35,21 @@ function AllProducts() {
 	return (
 		<Layout>
 			<section className="bg-black">
+				{loading && (
+					<div className="min-h-screen flex flex-col justify-center w-full items-center text-white gap-2">
+						<img
+							src={Cooking}
+							alt="cooking"
+							width={24}
+						/>
+						<img
+							src={LoadingGif}
+							alt="cooking"
+							width={14}
+						/>
+						<h1 className="mx-2">Please wait ! food is cooking</h1>
+					</div>
+				)}
 				<div className="sticky top-8 block md:hidden ">
 					<div className="flex flex-row bg-black justify-center  w-full gap-2 py-2">
 						{categoryMob.map((category, index) => (
@@ -66,7 +85,7 @@ function AllProducts() {
 					</div>
 				</div>
 
-				<div className="mx-auto">
+				<div className="mx-auto min-h-screen">
 					<div className="flex flex-wrap justify-center">
 						{!filter
 							? productData?.map((item) => {

@@ -42,10 +42,10 @@ function Login() {
 			toast.error("Password should be greater than 8");
 			return;
 		}
-
+		console.log(signInState);
 		const apiResponse = await dispatch(login(signInState));
 		console.log("Api response ", apiResponse);
-		if (apiResponse.payload.data.success) {
+		if (apiResponse.payload?.data.success) {
 			navigate("/");
 		}
 	}

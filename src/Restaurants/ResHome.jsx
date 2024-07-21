@@ -11,13 +11,7 @@ import FAQAccordion from "./FAQAccordion";
 const ResHome = () => {
 	const [selectedOption, setSelectedOption] = useState("");
 	const navigate = useNavigate();
-	const initialValue = {
-		noOfPeople: 0,
-		time: "",
-		location: selectedOption,
-		date: "",
-		duration: "",
-	};
+
 	const [formData, setFormData] = useState({
 		noOfPeople: 0,
 		time: "",

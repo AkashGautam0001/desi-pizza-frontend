@@ -6,6 +6,7 @@ import {
 } from "../../redux/slices/CartSlice";
 import Layout from "../../layouts/Layout";
 import { Link } from "react-router-dom";
+import EmptyCart from "../../assets/empycart.svg";
 
 function CartDetails() {
 	const [cartDetails, setCartDetails] = useState();
@@ -187,7 +188,16 @@ function CartDetails() {
 							</div>
 						</div>
 					) : (
-						"Cart is empty"
+						<div className="text-white flex flex-col items-center justify-center h-screen">
+							<img
+								src={EmptyCart}
+								alt=""
+								className="lg:w-96 w-32"
+							/>
+							<h1 className="lg:text-2xl font-bold py-3 my-3">
+								Cart is Empty
+							</h1>
+						</div>
 					)}
 				</div>
 			</section>

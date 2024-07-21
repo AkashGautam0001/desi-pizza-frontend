@@ -67,7 +67,7 @@ function LoginPresentation({ handleUserInput, handleFormSubmit }) {
 							Do'nt have an account ?
 							<Link
 								to="/auth/signup"
-								className="text-primary font-bold hover:underline underline-offset-4"
+								className="text-accent font-bold hover:underline underline-offset-4"
 							>
 								{" "}
 								Sign Up
