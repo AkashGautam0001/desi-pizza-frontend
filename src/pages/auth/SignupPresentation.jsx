@@ -107,7 +107,7 @@ function SignUpPresentation({ handleUserInput, handleFormSubmit }) {
 								className="text-accent font-bold hover:underline underline-offset-4"
 							>
 								{" "}
-								Sign Up
+								Sign In
 							</Link>
 						</p>
 					</form>
