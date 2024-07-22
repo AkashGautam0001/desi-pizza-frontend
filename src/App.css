@@ -4,6 +4,6 @@
 	box-sizing: border-box;
 }
 ::selection {
-	background: transparent;
-	color: inherit;
+	background: white;
+	color: black;
 }

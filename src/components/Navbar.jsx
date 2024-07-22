@@ -9,15 +9,11 @@ import { getCartDetails } from "../redux/slices/CartSlice";
 function Navbar() {
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+
 	const { cartsData } = useSelector((state) => state.cart);
 	const { pathname } = useLocation();
 
 	console.log("Navbar cartsData", cartsData);
-	async function handleLogout(e) {
-		e.preventDefault();
-		dispatch(logout());
-	}
 
 	async function fetchCartDetails() {
 		const res = await dispatch(getCartDetails());
@@ -149,15 +145,13 @@ function Navbar() {
 						<li className="hover:text-[#FF9110]">
 							{isLoggedIn ? (
 								<div className="flex cursor-pointer hover:border-red-50 hover:bg-white p-[1.5px] bg-white rounded-full">
-									{/* <p className="font-serif text-2xl uppercase bg-primary px-4 py-2 text-white rounded-md">
-									Book Your Bite
-								</p> */}
-									<img
-										width={24}
-										src={profile}
-										alt="Profile"
-									/>
-									{/* <Link onClick={handleLogout}>Logout</Link> */}
+									<Link to={`/user`}>
+										<img
+											width={24}
+											src={profile}
+											alt="Profile"
+										/>
+									</Link>
 								</div>
 							) : (
 								<>

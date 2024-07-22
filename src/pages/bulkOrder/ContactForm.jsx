@@ -4,21 +4,19 @@ import { useForm } from "react-hook-form";
 const ContactForm = () => {
 	const { register, handleSubmit } = useForm();
 
-	// function sendFormData() {
-	// 	// const response = axiosInstance.post('/restaurant/')
-	// }
-	function handlFormSubmit(data) {
+	function handleFormSubmit(data) {
 		console.log(data);
 	}
+
 	return (
 		<form
-			onSubmit={handleSubmit(handlFormSubmit)}
-			className="flex flex-col mb-24 bg-transparent backdrop-blur-md  shadow-md max-w-lg mx-auto"
+			onSubmit={handleSubmit(handleFormSubmit)}
+			className="flex flex-col mb-24 bg-gray-800 backdrop-blur-md shadow-lg max-w-lg mx-auto p-6 rounded-lg w-full"
 		>
-			<h1 className="text-4xl text-center font-bold text-primary mb-4">
+			<h1 className="text-4xl text-center font-bold text-white mb-4">
 				Contact Us
 			</h1>
-			<p className="text-gray-100 mb-6 text-center">
+			<p className="text-gray-300 mb-6 text-center">
 				Please let us know your query
 			</p>
 
@@ -27,44 +25,44 @@ const ContactForm = () => {
 				type="text"
 				name="name"
 				placeholder="Name*"
-				className="form-input mb-4 p-2 border border-gray-300 rounded"
+				className=" mb-4 p-3 border border-gray-600 rounded bg-gray-900 text-gray-200"
 			/>
 			<input
 				{...register("organisation")}
 				type="text"
 				placeholder="Organisation / Party"
-				className="form-input mb-4 p-2 border border-gray-300 rounded"
+				className=" mb-4 p-3 border border-gray-600 rounded bg-gray-900 text-gray-200"
 			/>
 			<input
 				{...register("email")}
 				type="email"
 				name="email"
 				placeholder="Email*"
-				className="form-input mb-4 p-2 border border-gray-300 rounded"
+				className=" mb-4 p-3 border border-gray-600 rounded bg-gray-900 text-gray-200"
 			/>
 			<input
 				{...register("location")}
 				type="text"
 				name="location"
 				placeholder="Location Area / City / State"
-				className="form-input mb-4 p-2 border border-gray-300 rounded"
+				className=" mb-4 p-3 border border-gray-600 rounded bg-gray-900 text-gray-200"
 			/>
 			<input
 				{...register("date")}
 				type="date"
 				name="date"
 				placeholder="Tentative Order Date"
-				className="form-input mb-4 p-2 border border-gray-300 rounded text-white"
+				className=" mb-4 p-3 border border-gray-600 rounded bg-gray-900 text-gray-200"
 			/>
 			<textarea
 				{...register("query")}
 				name="query"
 				placeholder="Your Query"
-				className="form-input mb-4 p-2 border border-gray-300 rounded h-32"
+				className=" mb-4 p-3 border border-gray-600 rounded bg-gray-900 text-gray-200 h-32"
 			/>
 			<button
 				type="submit"
-				className="bg-accent text-white p-2 rounded hover:bg-green-700 "
+				className="bg-accent text-white p-3 rounded hover:bg-green-700 transition-all duration-300"
 			>
 				Submit
 			</button>

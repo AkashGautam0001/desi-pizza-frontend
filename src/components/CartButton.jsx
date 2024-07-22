@@ -12,34 +12,37 @@ const CartButton = ({ presentInCart, setPresentInCart }) => {
 	const dispatch = useDispatch();
 	const [quantity, setQuantity] = useState(0);
 
-	function handleAddToCart() {
+	const handleAddToCart = () => {
 		dispatch(addProductToCart(productId));
 		dispatch(getCartDetails());
 		setQuantity(1);
 		setPresentInCart(true);
-	}
+	};
 
-	function handleRemoveFromCart() {
+	const handleRemoveFromCart = () => {
 		dispatch(removeProductFromCart(productId));
+		setQuantity((prev) => Math.max(0, prev - 1));
 		dispatch(getCartDetails());
-	}
+	};
 
 	const { cartsData } = useSelector((state) => state.cart);
 
-	function getQuantity() {
-		cartsData?.items?.forEach((item) => {
-			if (item.product._id === productId) {
-				if (item?.quantity == undefined) {
-					setPresentInCart(false);
-				}
-				setQuantity(item?.quantity);
-			}
-		});
-	}
+	const updateQuantity = () => {
+		const cartItem = cartsData?.items?.find(
+			(item) => item.product._id === productId
+		);
+		if (cartItem) {
+			setQuantity(cartItem.quantity);
+			setPresentInCart(cartItem.quantity > 0);
+		} else {
+			setQuantity(0);
+			setPresentInCart(false);
+		}
+	};
 
 	useEffect(() => {
-		getQuantity();
-	}, [quantity, handleAddToCart, handleRemoveFromCart]);
+		updateQuantity();
+	}, [quantity, cartsData]);
 
 	return (
 		<>
@@ -51,7 +54,7 @@ const CartButton = ({ presentInCart, setPresentInCart }) => {
 					>
 						+
 					</button>
-					<span className="px-3">{quantity}</span>
+					<span className="px-3 text-black">{quantity}</span>
 					<button
 						className="px-[24px] py-[3px] text-2xl text-primary hover:bg-primary rounded-r-lg hover:text-white  transition-all duration-300 ease-in-out"
 						onClick={() => handleRemoveFromCart(productId)}

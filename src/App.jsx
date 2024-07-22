@@ -16,6 +16,8 @@ import Contact from "./pages/Contact.jsx";
 import ResHome from "./Restaurants/ResHome.jsx";
 import BookingSuccess from "./Restaurants/BookingSuccess.jsx";
 import Corporate from "./pages/bulkOrder/Corporate.jsx";
+import UserProfile from "./pages/UserProfile.jsx";
+import OrderTracking from "./pages/order/OrderTracking.jsx";
 
 function App() {
 	return (
@@ -57,8 +59,16 @@ function App() {
 
 				<Route element={<RequireAuth />}>
 					<Route
+						path="/user"
+						element={<UserProfile />}
+					/>
+					<Route
 						path="/order"
 						element={<Order />}
+					/>
+					<Route
+						path="/order/tracking"
+						element={<OrderTracking />}
 					/>
 					<Route
 						path="/order/success"
