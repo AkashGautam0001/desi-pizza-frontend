@@ -1,17 +1,23 @@
 import React from "react";
 import Layout from "../layouts/Layout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OrderHistory from "./order/OrderHistory";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/slices/AuthSlice";
 
 const UserProfile = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const handleEditProfile = () => {
 		// Handle edit profile logic here
 		alert("Edit Profile clicked!");
 	};
 
+	const { data } = useSelector((state) => state.auth);
+
 	const handleLogout = () => {
-		// Handle logout logic here
-		alert("Logout clicked!");
+		dispatch(logout());
+		navigate("/");
 	};
 
 	return (
@@ -25,9 +31,8 @@ const UserProfile = () => {
 							alt="User Profile"
 						/>
 						<h2 className="mt-4 text-xl font-semibold text-white">
-							John Doe
+							{data.firstName}
 						</h2>
-						<p className="text-gray-400">johndoe@example.com</p>
 					</div>
 
 					<div className="mt-6 w-full">
@@ -37,13 +42,13 @@ const UserProfile = () => {
 						<div className="mt-4">
 							<div className="flex justify-between items-center border-b border-gray-600 py-2">
 								<span className="text-gray-400">Full Name</span>
-								<span className="text-white">John Doe</span>
+								<span className="text-white">
+									{data.firstName}
+								</span>
 							</div>
 							<div className="flex justify-between items-center border-b border-gray-600 py-2">
 								<span className="text-gray-400">Email</span>
-								<span className="text-white">
-									johndoe@example.com
-								</span>
+								<span className="text-white">{data.email}</span>
 							</div>
 							<div className="flex justify-between items-center border-b border-gray-600 py-2">
 								<span className="text-gray-400">Phone</span>

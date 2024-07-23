@@ -72,7 +72,7 @@ const OrderHistory = () => {
 						<>
 							<li
 								key={order.id}
-								className="border-b border-gray-600 py-5 flex justify-between my-2"
+								className="border-b border-gray-600 py-5 flex lg:flex-row flex-col items-center lg:justify-between my-2 space-y-4"
 							>
 								<div className="space-x-4">
 									<span className="text-gray-400 px-4 py-2">
@@ -82,7 +82,7 @@ const OrderHistory = () => {
 										{order.items}
 									</span>
 								</div>
-								<div className="space-x-4">
+								<div className="space-x-4 flex justify-between items-center lg:flex-none">
 									<span
 										className={`px-4 py-2 rounded-full ${
 											order.status === "Delivered"
@@ -97,7 +97,7 @@ const OrderHistory = () => {
 									</span>
 									<Link
 										to={"/order/tracking"}
-										className="py-2 mt-4 px-5 rounded-full font-bold hover:bg-white hover:text-black border border-white text-white hover:bg-accent-dark transition-all duration-300 ease-in-out"
+										className="py-2 px-5 rounded-full font-bold hover:bg-white hover:text-black border border-white text-white hover:bg-accent-dark transition-all duration-300 ease-in-out"
 									>
 										Tracking Order
 									</Link>
